@@ -1,0 +1,58 @@
+{
+  "name": "todo-api",
+  "version": "0.1.0",
+  "description": "Rest API for todos",
+  "main": "app.js",
+  "pre-commit": {
+    "silent": false,
+    "run": [
+    ]
+  },
+  "scripts": {
+    "pre-test": "npm install",
+    "test": "NODE_ENV=test node_modules/mocha/bin/mocha app/tests/integration",
+    "test-integration": "node --harmony node_modules/jasmine-node/lib/jasmine-node/cli.js --verbose --config NODE_ENV test --forceexit --captureExceptions --matchall app/tests/integration",
+    "test-jasmine": "node --harmony node_modules/jasmine-node/lib/jasmine-node/cli.js --verbose --config NODE_ENV test --forceexit --captureExceptions --matchall app/tests",
+    "test-mocha": "node_modules/mocha/bin/mocha app/tests/integration"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@bitbucket.org/catacs/todo-api.git"
+  },
+  "keywords": [
+    "todo-api",
+    "todo",
+    "api"
+  ],
+  "author": "Catalin Costin Stanciu",
+  "license": "MIT",
+  "homepage": "https://bitbucket.org/catacs/todo-api#readme",
+  "dependencies": {
+    "bluebird": "^3.4.6",
+    "body-parser": "~1.14.2",
+    "co": "~4.6.0",
+    "compression": "~1.6.1",
+    "express": "~4.13.3",
+    "jwt-simple": "^0.5.0",
+    "kerberos": "~0.0.17",
+    "lodash": "~4.0.0",
+    "method-override": "^2.3.6",
+    "moment": "^2.15.1",
+    "mongoose": "~4.3.5",
+    "morgan": "~1.6.1",
+    "node-uuid": "^1.4.7",
+    "winston": "^2.1.1"
+  },
+  "devDependencies": {
+    "chai": "~3.5.0",
+    "gulp": "~3.9.0",
+    "gulp-apidoc": "^0.2.4",
+    "gulp-logwarn": "0.0.8",
+    "jasmine": "~2.4.1",
+    "jasmine-node": "~1.14.5",
+    "mocha": "~2.3.4",
+    "pre-commit": "^1.1.2",
+    "superagent": "~1.7.0",
+    "supertest": "~1.1.0"
+  }
+}
