@@ -3,21 +3,31 @@
 const moment = require('moment');
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const ObjectId = Schema.ObjectId;
 
-const TodoSchema = new Schema({
-  title: String,
-  createdAt: {
-    type: Date,
-    default: Date.now,
-  },
-  updatedAt: {
-    type: Date,
-    default: Date.now,
-  },
-});
+const ItemSchema = new Schema({
+    date:  {
+      type: Date,
+      default: Date.now,
+    },
+		todoId: {
+    	type: ObjectId,
+    	required: true
+  	},
+    description: String,
+    visible: Boolean,
+		createdAt: {
+    	type: Date,
+			default: Date.now,
+		},
+		updatedAt: {
+			type: Date,
+			default: Date.now,
+		},
+  });
 
 // on every save, add the date
-TodoSchema.pre('save', function (next) {    
+ItemSchema.pre('save', function (next) {    
   // get the current date
   const currentDate = new Date();
 
@@ -32,7 +42,7 @@ TodoSchema.pre('save', function (next) {
 });
 
 // on every save, add the date
-TodoSchema.pre('update', function (next) {
+ItemSchema.pre('update', function (next) {
   // get the current date
   const currentDate = new Date();
 
@@ -42,4 +52,4 @@ TodoSchema.pre('update', function (next) {
   next();
 });
 
-const Todo = mongoose.model('Todo', TodoSchema);
+const Item = mongoose.model('Item', ItemSchema);
