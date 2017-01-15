@@ -1,12 +1,11 @@
-# Men api (Mongo Express Node API)
+# Todo api (Todo API)
 
-This project it's an intent to demostrate how powerful is the mean stack. The objective is to give an API to administrate user. For better usage it has and embeded front-end.
-
+Simple todos api to simplify frontend testing of different libraries.
 
 To start using it:
 
 ```bash
-git clone  git@bitbucket.org:catacs/men-api.git
+git clone  git@github.com:catacs/todos-api.git
 ```
 
 
