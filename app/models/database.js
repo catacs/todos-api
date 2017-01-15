@@ -41,7 +41,7 @@ function getMongoUri(config) {
   const port =  config.persistence.port || 27017;
   const user = config.persistence.user || '';
   const password = config.persistence.password || '';
-  const database = config.persistence.databse || 'users-development';
+  const database = config.persistence.database || 'todos-development';
 
   let auth = '';
   const server = host + ':' + port;
@@ -50,12 +50,13 @@ function getMongoUri(config) {
     auth = user + '@' + password;
   }
 
-  const mongoUri = mongoURIPrefix + auth + server;
+  const mongoUri = `${mongoURIPrefix}${auth}${server}/${database}`;
 
   return mongoUri;
 }
 
 function connect() {
+  logger.warn(mongoURI);
   return mongoose.connect(mongoURI, { server: { reconnectTries: Number.MAX_VALUE } });
 }
 
